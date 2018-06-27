@@ -1,0 +1,16 @@
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: kafka-broker
+  namespace: kafka
+provisioner: docker.io/hostpath
+reclaimPolicy: Retain
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: kafka-zookeeper
+provisioner: docker.io/hostpath
+reclaimPolicy: Retain
+

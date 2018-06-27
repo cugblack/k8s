@@ -1,0 +1,14 @@
+kind: PresentVolumeClaim
+apiVersion: v1
+metadata: 
+  name: data
+  namespace: kafka
+  labels: 
+    type: hostPath
+spec:
+  accessModes: 
+    - ReadWriteOnce
+  storageClassName: kafka-zookeeper
+  resources: 
+    requests: 
+      storage: 5Gi
