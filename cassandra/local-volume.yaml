@@ -1,0 +1,49 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: cassandra-data-1
+  labels:
+    type: local
+    app: cassandra
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/data/cassandra/cassandra-data-1
+  persistentVolumeReclaimPolicy: Retain
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: cassandra-data-2
+  labels:
+    type: local
+    app: cassandra
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/data/cassandra/cassandra-data-2
+  persistentVolumeReclaimPolicy: Retain
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: cassandra-data-3
+  labels:
+    type: local
+    app: cassandra
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/data/cassandra/cassandra-data-3
+  persistentVolumeReclaimPolicy: Retain
+
