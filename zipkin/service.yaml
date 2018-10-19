@@ -1,0 +1,19 @@
+apiVersion: "v1"
+kind: Service
+metadata: 
+  labels:
+    project: "zipkin"
+    version: "0.1.5"
+  name: "zipkin"
+  namespace: "kafka"
+spec:
+  type: NodePort
+#  clusterIP: 10.100.10.1
+  ports:
+  - port: 9411
+    protocol: "TCP"
+    targetPort: 9411
+    nodePort: 31001
+  selector:
+    project: "zipkin"
+
