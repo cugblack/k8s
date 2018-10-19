@@ -11,13 +11,13 @@ cassandra 配置
 
 采用挂载本地目录的形式，挂载的本地目录为：/home/data/cassandra/cassandra-data-0
 
-	local-volume.yaml
+	kubectl create -f local-volume.yaml
 
 创建一个StatefulSet,负责创建pod。
 
 它提供有序部署、有序终止和唯一网络名称。
 
-	cassandra-StatefulSet.yaml
+	kubectl create -f cassandra-StatefulSet.yaml
 
 验证StatefulSet
 
