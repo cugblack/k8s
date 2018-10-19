@@ -17,3 +17,4 @@ zipkin支持的配置
           value: "master"
        
        
+访问集群出口IP:31001即可访问zipkin界面
