@@ -1,3 +1,6 @@
+使用的镜像为：openzipkin/zipkin:latest，有需要可自行更换其他版本的镜像
+
+
 zipkin支持的配置
 
 
