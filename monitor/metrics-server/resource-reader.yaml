@@ -11,6 +11,7 @@ rules:
   resources:
   - pods
   - nodes
+  - node/stats
   - namespaces
   verbs:
   - get
@@ -23,7 +24,6 @@ rules:
   verbs:
   - get
   - list
-  - update
   - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
