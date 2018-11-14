@@ -1,19 +1,23 @@
 ***
 ## Monitoring on kubernetes
 
+核心指标数据主要来自：
+  
+    kubelet
+    cAdvisor
 
 ### k8s集群获取核心资源指标有两种方式：
 
     heapster
     metrics-server
 
-当然也支持自定义资源指标来对集群进行监控：
+当然也支持自定义资源指标来对集群进行监控,核心数据还是从`kubelet、cAdvisor`获取，其他数据从`Node-Exporter`获取：
 
     prometheus
 ---
     
     
-在部署了这二者[`heapster/metrics-server`]之中的任意一个，可以通过 `kubectl top node/pod` 来查看集群内node节点或者pod的`资源使用情况`，同时也可以使用k8s支持的hpa[`自动弹性伸缩autoscale`],当监控到pod资源达到限制的值时，会对资源[deployment、statefulset、replicationController]进行自动伸缩。  
+在部署了这二者[`heapster/metrics-server`]之中的任意一个，可以通过 `kubectl top node/pod` 来查看集群内node节点或者pod的`资源使用情况`，同时也可以使用k8s支持的HPA[Horizontal Pod Autoscaler]`自动弹性伸缩autoscale`,当监控到pod资源达到限制的值时，会对资源[deployment、statefulset、replicationController]进行自动伸缩。  
 ```
     kubectl top --help
     Available Commands:
