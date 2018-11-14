@@ -1,8 +1,8 @@
-#kafka-zookeeper
+# kafka-zookeeper
 
-1、配置命名空间及存储
+## 1、配置命名空间及存储  
 
-命名空间：kafka
+命名空间：kafka  
 
     namespace: kafka
     kubectl create -f 00-namespace.yaml
@@ -17,15 +17,15 @@ storageclass创建：
     采用 docker.io/hostpath 创建临时目录，与pod共享生命周期
     03storageclass.yaml
     
-PV：PresistentVolume,将底层存储共享给pod使用
+PV：`PresistentVolume`,将底层存储共享给pod使用
     
     采用hostPath模式，挂载本地目录
     01local-pv.yaml
     02local-pvc.yaml
 
-PVC：用户对于存储资源的“申请”
-
-2、zookeeper部署
+PVC：用户对于存储资源的“申请”  
+---
+## 2、zookeeper部署
 
 配置采用configmap编写
 
@@ -42,12 +42,12 @@ PVC：用户对于存储资源的“申请”
     50pzoo-statefulset.yaml
     51zoo-statefulset.yaml
     
-3、部署kafka
+## 3、部署kafka
 
 配置采用configmap
 
-    10broker-config.yaml
-    
+      10broker-config.yaml
+          
 部署服务
 
     20dns.yaml     "broker"
