@@ -53,6 +53,8 @@ spec:
         image: cugblackcugblack/metrics-server-amd64:v0.3.1
         command:
         - /metrics-server
+        # These are needed for GKE, which doesn't support secure communication yet.
+        # Remove these lines for non-GKE clusters, and when GKE supports token-based auth.
         - --kubelet-port=10255
         - --deprecated-kubelet-completely-insecure=true
         - --metric-resolution=30s
