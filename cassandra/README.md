@@ -1,15 +1,15 @@
-cassandra 配置
+# cassandra 配置
 
-服务
+## 服务
 
 创建一个本地服务（namespace=develop，ClusterIP=10.106.39.210，端口为9042）
-	cassandra-service.yaml
+[cassandra-service](/cassandra/cassandra-service.yaml)
 
 
 
-存储
+## 存储
 
-采用挂载本地目录的形式，挂载的本地目录为：/home/data/cassandra/cassandra-data-0
+采用挂载本地目录的形式，挂载的本地目录为：`/home/data/cassandra/cassandra-data-0` ,可修改
 
 	kubectl create -f local-volume.yaml
 
@@ -40,6 +40,6 @@ cassandra 配置
     
     
 
-参考
+>参考
 
-https://github.com/IBM/Scalable-Cassandra-deployment-on-Kubernetes/
+>>[IBM-Scalable-Cassandra](https://github.com/IBM/Scalable-Cassandra-deployment-on-Kubernetes/)
