@@ -30,7 +30,7 @@ zipkin支持的配置
  
 ## 以下为部分配置与YAML参数配置的对应关系
 
-`完整文件`为 [./zipkin/zipkin-server-shared.yml]
+`完整文件`为 [zipkin-server-shared.yml](/zipkin/zipkin-server-shared.yml)
 ``` 
   collector:
     kafka:
