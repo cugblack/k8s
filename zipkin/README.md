@@ -1,7 +1,9 @@
-使用的镜像为：openzipkin/zipkin:latest，有需要可自行更换其他版本的镜像
+使用的镜像为：openzipkin/zipkin:2.7.5，有需要可自行更换其他版本的镜像
 
 
 zipkin支持的配置
+
+
 
 
         - name: "STORAGE_PORT_9042_TCP_ADDR"
@@ -21,3 +23,5 @@ zipkin支持的配置
        
        
 访问集群出口IP:31001即可访问zipkin界面
+>Tips
+>>存储支持cassandra、mysql等数据库，参数可自行查询
