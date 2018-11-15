@@ -20,7 +20,7 @@ storageclass创建：
 PV：`PresistentVolume`,将底层存储共享给pod使用
     
     采用hostPath模式，挂载本地目录
-    01local-pv.yaml
+    [01local-pv.yaml](/kafka-zookeeper/01-local-pv.yaml)
     02local-pvc.yaml
 
 PVC：用户对于存储资源的“申请”  
@@ -46,7 +46,7 @@ PVC：用户对于存储资源的“申请”
 
 配置采用configmap
 
-      10broker-config.yaml
+      [10broker-config.yaml](/kafka-zookeeper/kafka/10broker-config.yaml)
           
 部署服务
 
