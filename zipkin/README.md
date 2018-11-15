@@ -2,7 +2,7 @@
 
 >用来跟踪微服务间的链路调用与日志，数据存储在[cassandra](../cassandra/)中。
 
->>使用的镜像为：`openzipkin/zipkin:2.7.5`，[Dockerfile](/zipkin/Dockerfile)， 有需要可自行更换其他版本的镜像
+>>使用的镜像为：`openzipkin/zipkin:2.11`，[Dockerfile](/zipkin/Dockerfile)， 有需要可自行更换其他版本的镜像
 
 
 >>>zipkin支持的部分配置，[详细配置请参考此文件](/zipkin/zipkin-server-shared.yml)
