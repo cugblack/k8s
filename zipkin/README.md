@@ -1,7 +1,7 @@
 使用的镜像为：openzipkin/zipkin:2.7.5，有需要可自行更换其他版本的镜像
 
 
-zipkin支持的配置
+zipkin支持的部分配置，[详细配置请参考此文件](/zipkin/zipkin-server-shared.yml)
 
 
 
