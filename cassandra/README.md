@@ -14,7 +14,7 @@
 	kubectl create -f local-volume.yaml
 
 创建一个StatefulSet,负责创建pod。
-镜像版本： cassandra: 3[Dockerfile](https://raw.githubusercontent.com/cugblack/dockerfile/master/cassandra/Dockerfile)
+镜像版本： cassandra:3   [Dockerfile](https://github.com/cugblack/dockerfile/tree/master/cassandra)
 
 它提供有序部署、有序终止和唯一网络名称。
 
