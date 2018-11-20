@@ -8,7 +8,7 @@ helm组成：
     tiller：服务端接收helm发来的charts与config合并生成release
     
    
-## 安装
+## 一、安装
 
 ### 1、下载helm可执行文件
 
@@ -29,7 +29,43 @@ helm组成：
 
     kubectl  set image deployment/tiller-deploy -n kube-system  tiller=cugblackcugblack/kubernetes-helm-tiller:v2.9.0
     
+```
+ /home/ubuntu/.helm 
+ /home/ubuntu/.helm/repository 
+ /home/ubuntu/.helm/repository/cache 
+ /home/ubuntu/.helm/repository/local 
+ /home/ubuntu/.helm/plugins 
+ /home/ubuntu/.helm/starters 
+ /home/ubuntu/.helm/cache/archive 
+ /home/ubuntu/.helm/repository/repositories.yaml
+```
+    
 ---
+# 二、使用
+
+    helm version   #查看版本
+    
+    helm repo update #更新仓库
+    
+    helm repo list  #显示可用仓库
+        ubuntu@i:/helm$ helm repo list
+
+        NAME  	URL                                             
+        stable	https://kubernetes-charts.storage.googleapis.com
+        local 	http://127.0.0.1:8879/charts
+Usage:
+
+  helm repo [command]
+```
+Available Commands:
+  add         add a chart repository
+  index       generate an index file given a directory containing packaged charts
+  list        list chart repositories
+  remove      remove a chart repository
+  update      update information of available charts locally from chart repositories
+```
 
 >其他版本请参考
 >>[官方站点](https://github.com/helm/helm)
+
+>>[官方仓库](https://hub.kubeapps.com/)
