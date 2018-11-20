@@ -19,7 +19,7 @@ helm组成：
     
 ### 2、RBAC
 
-  [rbac配置文件](/k8s/helm/rbac-helm.yaml)
+  [rbac配置文件](/helm/rbac-heml.yaml)
 
 ### 3、初始化init
 
@@ -53,6 +53,29 @@ helm组成：
         NAME  	URL                                             
         stable	https://kubernetes-charts.storage.googleapis.com
         local 	http://127.0.0.1:8879/charts
+
+    helm fetch stable/mysql
+```
+ubuntu@6:~$cd /home/ubuntu/.helm/cache/archive 
+ubuntu@6:~/.helm/cache/archive$ tree mysql
+mysql
+├── Chart.yaml
+├── README.md
+├── templates
+│   ├── configurationFiles-configmap.yaml
+│   ├── deployment.yaml
+│   ├── _helpers.tpl
+│   ├── initializationFiles-configmap.yaml
+│   ├── NOTES.txt
+│   ├── pvc.yaml
+│   ├── secrets.yaml
+│   ├── svc.yaml
+│   └── tests
+│       ├── test-configmap.yaml
+│       └── test.yaml
+└── values.yaml
+
+```    
 
 
 >其他版本请参考
