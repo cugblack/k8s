@@ -28,7 +28,9 @@ helm组成：
 此时会生成一个tiller的deployment，如果无法连接k8s.gcr.io，可使用此镜像：
 
     kubectl  set image deployment/tiller-deploy -n kube-system  tiller=cugblackcugblack/kubernetes-helm-tiller:v2.9.0
-    
+   
+
+> 以下为生成的文件夹：    
 ```
  /home/ubuntu/.helm 
  /home/ubuntu/.helm/repository 
@@ -36,7 +38,7 @@ helm组成：
  /home/ubuntu/.helm/repository/local 
  /home/ubuntu/.helm/plugins 
  /home/ubuntu/.helm/starters 
- /home/ubuntu/.helm/cache/archive 
+ charts文件本地存储路径：/home/ubuntu/.helm/cache/archive 
  /home/ubuntu/.helm/repository/repositories.yaml
 ```
     
