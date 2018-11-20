@@ -1,4 +1,7 @@
 # helm安装使用
+---
+
+helm组成：
 
     helm：客户端，管理本地chart仓库，管理chart，与服务器交互，发送chart，实例安装、查询、卸载等操作
     
@@ -12,7 +15,7 @@
     wget https://storage.googleapis.com/kubernetes-helm/helm-v2.9.0-linux-amd64.tar.gz
 
     tar -zxvf helm-v2.9.0-linux-amd64.tar.gz 
-    cp helm/helm /use/bin/helm
+    cp linux-amd64/helm /use/bin/helm
     
 ### 2、RBAC
 
@@ -26,5 +29,7 @@
 
     kubectl  set image deployment/tiller-deploy -n kube-system  tiller=cugblackcugblack/kubernetes-helm-tiller:v2.9.0
     
+---
+
 >其他版本请参考
 >>[官方站点](https://github.com/helm/helm)
