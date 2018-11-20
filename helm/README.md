@@ -3,9 +3,9 @@
 
 helm组成：
 
-    helm：客户端，管理本地chart仓库，管理chart，与服务器交互，发送chart，实例安装、查询、卸载等操作
+    helm：  客户端，管理本地chart仓库，管理chart，与服务器交互，发送chart，实例安装、查询、卸载等操作
     
-    tiller：服务端接收helm发来的charts与config合并生成release
+    tiller：服务端，接收helm发来的charts与config合并生成release
     
    
 ## 一、安装
@@ -53,17 +53,7 @@ helm组成：
         NAME  	URL                                             
         stable	https://kubernetes-charts.storage.googleapis.com
         local 	http://127.0.0.1:8879/charts
-Usage:
 
-  helm repo [command]
-```
-Available Commands:
-  add         add a chart repository
-  index       generate an index file given a directory containing packaged charts
-  list        list chart repositories
-  remove      remove a chart repository
-  update      update information of available charts locally from chart repositories
-```
 
 >其他版本请参考
 >>[官方站点](https://github.com/helm/helm)
