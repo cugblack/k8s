@@ -22,5 +22,9 @@
 
     helm init --service-account tiller
     
+此时会生成一个tiller的deployment，如果无法连接k8s.gcr.io，可使用此镜像：
+
+    kubectl  set image deployment/tiller-deploy -n kube-system  tiller=cugblackcugblack/kubernetes-helm-tiller:v2.9.0
+    
 >其他版本请参考
 >>[官方站点](https://github.com/helm/helm)
