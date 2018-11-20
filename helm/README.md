@@ -59,3 +59,5 @@ helm组成：
 >>[官方站点](https://github.com/helm/helm)
 
 >>[官方仓库](https://hub.kubeapps.com/)
+
+>>[charts-github](https://github.com/helm/charts)
