@@ -1,0 +1,439 @@
+istio-1.0.4/
+├── bin
+│   └── istioctl
+├── install
+│   ├── consul
+│   │   ├── istio.yaml
+│   │   ├── kubeconfig
+│   │   └── README.md
+│   ├── gcp
+│   │   ├── deployment_manager
+│   │   │   ├── istio-cluster.jinja
+│   │   │   ├── istio-cluster.jinja.display
+│   │   │   ├── istio-cluster.jinja.schema
+│   │   │   ├── istio-cluster.yaml
+│   │   │   └── README.md
+│   │   └── README.md
+│   ├── kubernetes
+│   │   ├── addons
+│   │   ├── ansible
+│   │   │   ├── ansible.cfg
+│   │   │   ├── istio
+│   │   │   │   ├── defaults
+│   │   │   │   │   └── main.yml
+│   │   │   │   ├── meta
+│   │   │   │   │   └── main.yml
+│   │   │   │   ├── tasks
+│   │   │   │   │   ├── add_to_path.yml
+│   │   │   │   │   ├── assert_oc_admin.yml
+│   │   │   │   │   ├── bookinfo_cmd.j2
+│   │   │   │   │   ├── change_scc.yml
+│   │   │   │   │   ├── create_namespace_free_definition_file.yml
+│   │   │   │   │   ├── delete_resources.yml
+│   │   │   │   │   ├── install_addons.yml
+│   │   │   │   │   ├── install_on_cluster.yml
+│   │   │   │   │   ├── install_samples.yml
+│   │   │   │   │   ├── install_sample.yml
+│   │   │   │   │   ├── main.yml
+│   │   │   │   │   ├── safely_create_namespace.yml
+│   │   │   │   │   ├── set_appropriate_cmd_path.yml
+│   │   │   │   │   ├── set_istio_distro_vars.yml
+│   │   │   │   │   ├── set_istio_path.yml
+│   │   │   │   │   └── simple_sample_cmd.j2
+│   │   │   │   └── vars
+│   │   │   │       └── main.yml
+│   │   │   ├── main.yml
+│   │   │   └── README.md
+│   │   ├── helm
+│   │   │   ├── helm-service-account.yaml
+│   │   │   ├── istio
+│   │   │   │   ├── charts
+│   │   │   │   │   ├── certmanager
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   └── templates
+│   │   │   │   │   │       ├── crds.yaml
+│   │   │   │   │   │       ├── deployment.yaml
+│   │   │   │   │   │       ├── _helpers.tpl
+│   │   │   │   │   │       ├── issuer.yaml
+│   │   │   │   │   │       ├── rbac.yaml
+│   │   │   │   │   │       └── serviceaccount.yaml
+│   │   │   │   │   ├── galley
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   └── templates
+│   │   │   │   │   │       ├── clusterrolebinding.yaml
+│   │   │   │   │   │       ├── clusterrole.yaml
+│   │   │   │   │   │       ├── configmap.yaml
+│   │   │   │   │   │       ├── deployment.yaml
+│   │   │   │   │   │       ├── _helpers.tpl
+│   │   │   │   │   │       ├── serviceaccount.yaml
+│   │   │   │   │   │       ├── service.yaml
+│   │   │   │   │   │       └── validatingwehookconfiguration.yaml.tpl
+│   │   │   │   │   ├── gateways
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   └── templates
+│   │   │   │   │   │       ├── autoscale.yaml
+│   │   │   │   │   │       ├── clusterrolebindings.yaml
+│   │   │   │   │   │       ├── clusterrole.yaml
+│   │   │   │   │   │       ├── deployment.yaml
+│   │   │   │   │   │       ├── serviceaccount.yaml
+│   │   │   │   │   │       └── service.yaml
+│   │   │   │   │   ├── grafana
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   ├── dashboards
+│   │   │   │   │   │   │   ├── galley-dashboard.json
+│   │   │   │   │   │   │   ├── istio-mesh-dashboard.json
+│   │   │   │   │   │   │   ├── istio-performance-dashboard.json
+│   │   │   │   │   │   │   ├── istio-service-dashboard.json
+│   │   │   │   │   │   │   ├── istio-workload-dashboard.json
+│   │   │   │   │   │   │   ├── mixer-dashboard.json
+│   │   │   │   │   │   │   └── pilot-dashboard.json
+│   │   │   │   │   │   ├── templates
+│   │   │   │   │   │   │   ├── configmap-custom-resources.yaml
+│   │   │   │   │   │   │   ├── configmap-dashboards.yaml
+│   │   │   │   │   │   │   ├── configmap.yaml
+│   │   │   │   │   │   │   ├── create-custom-resources-job.yaml
+│   │   │   │   │   │   │   ├── deployment.yaml
+│   │   │   │   │   │   │   ├── grafana-ports-mtls.yaml
+│   │   │   │   │   │   │   ├── _helpers.tpl
+│   │   │   │   │   │   │   ├── pvc.yaml
+│   │   │   │   │   │   │   ├── secret.yaml
+│   │   │   │   │   │   │   └── service.yaml
+│   │   │   │   │   │   └── values.yaml
+│   │   │   │   │   ├── ingress
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   └── templates
+│   │   │   │   │   │       ├── autoscale.yaml
+│   │   │   │   │   │       ├── clusterrolebinding.yaml
+│   │   │   │   │   │       ├── clusterrole.yaml
+│   │   │   │   │   │       ├── deployment.yaml
+│   │   │   │   │   │       ├── serviceaccount.yaml
+│   │   │   │   │   │       └── service.yaml
+│   │   │   │   │   ├── kiali
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   └── templates
+│   │   │   │   │   │       ├── clusterrolebinding.yaml
+│   │   │   │   │   │       ├── clusterrole.yaml
+│   │   │   │   │   │       ├── configmap.yaml
+│   │   │   │   │   │       ├── deployment.yaml
+│   │   │   │   │   │       ├── ingress.yaml
+│   │   │   │   │   │       ├── secrets.yaml
+│   │   │   │   │   │       ├── serviceaccount.yaml
+│   │   │   │   │   │       └── service.yaml
+│   │   │   │   │   ├── mixer
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   └── templates
+│   │   │   │   │   │       ├── autoscale.yaml
+│   │   │   │   │   │       ├── clusterrolebinding.yaml
+│   │   │   │   │   │       ├── clusterrole.yaml
+│   │   │   │   │   │       ├── configmap.yaml
+│   │   │   │   │   │       ├── config.yaml
+│   │   │   │   │   │       ├── deployment.yaml
+│   │   │   │   │   │       ├── _helpers.tpl
+│   │   │   │   │   │       ├── serviceaccount.yaml
+│   │   │   │   │   │       └── service.yaml
+│   │   │   │   │   ├── pilot
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   └── templates
+│   │   │   │   │   │       ├── autoscale.yaml
+│   │   │   │   │   │       ├── clusterrolebinding.yaml
+│   │   │   │   │   │       ├── clusterrole.yaml
+│   │   │   │   │   │       ├── deployment.yaml
+│   │   │   │   │   │       ├── gateway.yaml
+│   │   │   │   │   │       ├── meshexpansion.yaml
+│   │   │   │   │   │       ├── serviceaccount.yaml
+│   │   │   │   │   │       └── service.yaml
+│   │   │   │   │   ├── prometheus
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   └── templates
+│   │   │   │   │   │       ├── clusterrolebindings.yaml
+│   │   │   │   │   │       ├── clusterrole.yaml
+│   │   │   │   │   │       ├── configmap.yaml
+│   │   │   │   │   │       ├── deployment.yaml
+│   │   │   │   │   │       ├── _helpers.tpl
+│   │   │   │   │   │       ├── serviceaccount.yaml
+│   │   │   │   │   │       └── service.yaml
+│   │   │   │   │   ├── security
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   └── templates
+│   │   │   │   │   │       ├── cleanup-secrets.yaml
+│   │   │   │   │   │       ├── clusterrolebinding.yaml
+│   │   │   │   │   │       ├── clusterrole.yaml
+│   │   │   │   │   │       ├── configmap.yaml
+│   │   │   │   │   │       ├── create-custom-resources-job.yaml
+│   │   │   │   │   │       ├── deployment.yaml
+│   │   │   │   │   │       ├── enable-mesh-mtls.yaml
+│   │   │   │   │   │       ├── enable-mesh-permissive.yaml
+│   │   │   │   │   │       ├── _helpers.tpl
+│   │   │   │   │   │       ├── meshexpansion.yaml
+│   │   │   │   │   │       ├── serviceaccount.yaml
+│   │   │   │   │   │       └── service.yaml
+│   │   │   │   │   ├── servicegraph
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   └── templates
+│   │   │   │   │   │       ├── deployment.yaml
+│   │   │   │   │   │       ├── _helpers.tpl
+│   │   │   │   │   │       ├── ingress.yaml
+│   │   │   │   │   │       └── service.yaml
+│   │   │   │   │   ├── sidecarInjectorWebhook
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   └── templates
+│   │   │   │   │   │       ├── clusterrolebinding.yaml
+│   │   │   │   │   │       ├── clusterrole.yaml
+│   │   │   │   │   │       ├── deployment.yaml
+│   │   │   │   │   │       ├── _helpers.tpl
+│   │   │   │   │   │       ├── mutatingwebhook.yaml
+│   │   │   │   │   │       ├── serviceaccount.yaml
+│   │   │   │   │   │       └── service.yaml
+│   │   │   │   │   ├── telemetry-gateway
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   └── templates
+│   │   │   │   │   │       └── gateway.yaml
+│   │   │   │   │   └── tracing
+│   │   │   │   │       ├── Chart.yaml
+│   │   │   │   │       └── templates
+│   │   │   │   │           ├── deployment.yaml
+│   │   │   │   │           ├── _helpers.tpl
+│   │   │   │   │           ├── ingress-jaeger.yaml
+│   │   │   │   │           ├── ingress.yaml
+│   │   │   │   │           ├── service-jaeger.yaml
+│   │   │   │   │           └── service.yaml
+│   │   │   │   ├── Chart.yaml
+│   │   │   │   ├── README.md
+│   │   │   │   ├── requirements.yaml
+│   │   │   │   ├── templates
+│   │   │   │   │   ├── _affinity.tpl
+│   │   │   │   │   ├── configmap.yaml
+│   │   │   │   │   ├── crds.yaml
+│   │   │   │   │   ├── _helpers.tpl
+│   │   │   │   │   ├── install-custom-resources.sh.tpl
+│   │   │   │   │   └── sidecar-injector-configmap.yaml
+│   │   │   │   ├── values-istio-auth-galley.yaml
+│   │   │   │   ├── values-istio-auth-multicluster.yaml
+│   │   │   │   ├── values-istio-auth.yaml
+│   │   │   │   ├── values-istio-demo-auth.yaml
+│   │   │   │   ├── values-istio-demo.yaml
+│   │   │   │   ├── values-istio-galley.yaml
+│   │   │   │   ├── values-istio-gateways.yaml
+│   │   │   │   ├── values-istio-multicluster.yaml
+│   │   │   │   ├── values-istio-one-namespace-auth.yaml
+│   │   │   │   ├── values-istio-one-namespace.yaml
+│   │   │   │   ├── values-istio.yaml
+│   │   │   │   └── values.yaml
+│   │   │   ├── istio-remote
+│   │   │   │   ├── charts
+│   │   │   │   │   ├── security
+│   │   │   │   │   │   ├── Chart.yaml
+│   │   │   │   │   │   └── templates
+│   │   │   │   │   │       ├── cleanup-secrets.yaml
+│   │   │   │   │   │       ├── clusterrolebinding.yaml
+│   │   │   │   │   │       ├── clusterrole.yaml
+│   │   │   │   │   │       ├── deployment.yaml
+│   │   │   │   │   │       ├── enable-mesh-mtls.yaml
+│   │   │   │   │   │       ├── enable-mesh-permissive.yaml
+│   │   │   │   │   │       ├── _helpers.tpl
+│   │   │   │   │   │       ├── serviceaccount.yaml
+│   │   │   │   │   │       └── service.yaml
+│   │   │   │   │   └── sidecarInjectorWebhook
+│   │   │   │   │       ├── Chart.yaml
+│   │   │   │   │       └── templates
+│   │   │   │   │           ├── clusterrolebinding.yaml
+│   │   │   │   │           ├── clusterrole.yaml
+│   │   │   │   │           ├── deployment.yaml
+│   │   │   │   │           ├── _helpers.tpl
+│   │   │   │   │           ├── mutatingwebhook.yaml
+│   │   │   │   │           ├── serviceaccount.yaml
+│   │   │   │   │           └── service.yaml
+│   │   │   │   ├── Chart.yaml
+│   │   │   │   ├── README.md
+│   │   │   │   ├── requirements.yaml
+│   │   │   │   ├── templates
+│   │   │   │   │   ├── _affinity.tpl
+│   │   │   │   │   ├── clusterrolebinding.yaml
+│   │   │   │   │   ├── clusterrole.yaml
+│   │   │   │   │   ├── configmap.yaml
+│   │   │   │   │   ├── endpoints.yaml
+│   │   │   │   │   ├── _helpers.tpl
+│   │   │   │   │   ├── serviceaccount.yaml
+│   │   │   │   │   ├── service.yaml
+│   │   │   │   │   └── sidecar-injector-configmap.yaml
+│   │   │   │   └── values.yaml
+│   │   │   └── README.md
+│   │   ├── istio-citadel-plugin-certs.yaml
+│   │   ├── istio-citadel-standalone.yaml
+│   │   ├── istio-citadel-with-health-check.yaml
+│   │   ├── istio-demo-auth.yaml
+│   │   ├── istio-demo.yaml
+│   │   ├── mesh-expansion.yaml
+│   │   ├── namespace.yaml
+│   │   └── README.md
+│   ├── README.md
+│   └── tools
+│       ├── setupIstioVM.sh
+│       └── setupMeshEx.sh
+├── istio.VERSION
+├── LICENSE
+├── README.md
+├── samples
+│   ├── bookinfo
+│   │   ├── networking
+│   │   │   ├── bookinfo-gateway.yaml
+│   │   │   ├── certmanager-gateway.yaml
+│   │   │   ├── destination-rule-all-mtls.yaml
+│   │   │   ├── destination-rule-all.yaml
+│   │   │   ├── destination-rule-reviews.yaml
+│   │   │   ├── egress-rule-google-apis.yaml
+│   │   │   ├── ROUTING_RULE_MIGRATION.md
+│   │   │   ├── virtual-service-all-v1.yaml
+│   │   │   ├── virtual-service-details-v2.yaml
+│   │   │   ├── virtual-service-ratings-db.yaml
+│   │   │   ├── virtual-service-ratings-mysql-vm.yaml
+│   │   │   ├── virtual-service-ratings-mysql.yaml
+│   │   │   ├── virtual-service-ratings-test-abort.yaml
+│   │   │   ├── virtual-service-ratings-test-delay.yaml
+│   │   │   ├── virtual-service-reviews-50-v3.yaml
+│   │   │   ├── virtual-service-reviews-80-20.yaml
+│   │   │   ├── virtual-service-reviews-90-10.yaml
+│   │   │   ├── virtual-service-reviews-jason-v2-v3.yaml
+│   │   │   ├── virtual-service-reviews-test-v2.yaml
+│   │   │   ├── virtual-service-reviews-v2-v3.yaml
+│   │   │   └── virtual-service-reviews-v3.yaml
+│   │   ├── platform
+│   │   │   ├── consul
+│   │   │   │   ├── bookinfo.sidecars.yaml
+│   │   │   │   ├── bookinfo.yaml
+│   │   │   │   ├── cleanup.sh
+│   │   │   │   ├── destination-rule-all.yaml
+│   │   │   │   ├── README.md
+│   │   │   │   ├── virtual-service-all-v1.yaml
+│   │   │   │   ├── virtual-service-ratings-test-abort.yaml
+│   │   │   │   ├── virtual-service-ratings-test-delay.yaml
+│   │   │   │   ├── virtual-service-reviews-50-v3.yaml
+│   │   │   │   ├── virtual-service-reviews-test-v2.yaml
+│   │   │   │   ├── virtual-service-reviews-v2-v3.yaml
+│   │   │   │   └── virtual-service-reviews-v3.yaml
+│   │   │   └── kube
+│   │   │       ├── bookinfo-add-serviceaccount.yaml
+│   │   │       ├── bookinfo-certificate.yaml
+│   │   │       ├── bookinfo-db.yaml
+│   │   │       ├── bookinfo-details-v2.yaml
+│   │   │       ├── bookinfo-details.yaml
+│   │   │       ├── bookinfo-ingress.yaml
+│   │   │       ├── bookinfo-mysql.yaml
+│   │   │       ├── bookinfo-ratings-discovery.yaml
+│   │   │       ├── bookinfo-ratings-v2-mysql-vm.yaml
+│   │   │       ├── bookinfo-ratings-v2-mysql.yaml
+│   │   │       ├── bookinfo-ratings-v2.yaml
+│   │   │       ├── bookinfo-ratings.yaml
+│   │   │       ├── bookinfo-reviews-v2.yaml
+│   │   │       ├── bookinfo.yaml
+│   │   │       ├── cleanup.sh
+│   │   │       ├── istio-rbac-details-reviews.yaml
+│   │   │       ├── istio-rbac-enable.yaml
+│   │   │       ├── istio-rbac-namespace.yaml
+│   │   │       ├── istio-rbac-productpage.yaml
+│   │   │       ├── istio-rbac-ratings.yaml
+│   │   │       ├── rbac
+│   │   │       │   ├── details-reviews-policy.yaml
+│   │   │       │   ├── namespace-policy.yaml
+│   │   │       │   ├── productpage-policy.yaml
+│   │   │       │   ├── ratings-policy.yaml
+│   │   │       │   └── rbac-config-ON.yaml
+│   │   │       └── README.md
+│   │   ├── policy
+│   │   │   ├── mixer-rule-additional-telemetry.yaml
+│   │   │   ├── mixer-rule-deny-label.yaml
+│   │   │   ├── mixer-rule-deny-serviceaccount.yaml
+│   │   │   ├── mixer-rule-ingress-denial.yaml
+│   │   │   ├── mixer-rule-kubernetesenv-telemetry.yaml
+│   │   │   ├── mixer-rule-productpage-ratelimit.yaml
+│   │   │   ├── mixer-rule-ratings-denial.yaml
+│   │   │   └── mixer-rule-ratings-ratelimit.yaml
+│   │   ├── README.md
+│   │   ├── src
+│   │   │   ├── mongodb
+│   │   │   │   └── ratings_data.json
+│   │   │   └── ratings
+│   │   │       └── package.json
+│   │   └── swagger.yaml
+│   ├── certs
+│   │   ├── ca-cert.pem
+│   │   ├── ca-key.pem
+│   │   ├── cert-chain.pem
+│   │   └── root-cert.pem
+│   ├── CONFIG-MIGRATION.md
+│   ├── health-check
+│   │   ├── liveness-command.yaml
+│   │   └── liveness-http.yaml
+│   ├── helloworld
+│   │   ├── helloworld.yaml
+│   │   └── README.md
+│   ├── httpbin
+│   │   ├── destinationpolicies
+│   │   │   └── httpbin-circuit-breaker.yaml
+│   │   ├── httpbin.yaml
+│   │   ├── README.md
+│   │   ├── routerules
+│   │   │   └── httpbin-v1.yaml
+│   │   └── sample-client
+│   │       └── fortio-deploy.yaml
+│   ├── https
+│   │   ├── default.conf
+│   │   └── nginx-app.yaml
+│   ├── kubernetes-blog
+│   │   ├── bookinfo-ratings.yaml
+│   │   ├── bookinfo-reviews-v2.yaml
+│   │   └── bookinfo-v1.yaml
+│   ├── rawvm
+│   │   └── README.md
+│   ├── README.md
+│   ├── sleep
+│   │   ├── README.md
+│   │   └── sleep.yaml
+│   └── websockets
+│       ├── app.yaml
+│       ├── README.md
+│       └── route.yaml
+└── tools
+    ├── adsload
+    │   └── adsload.go
+    ├── cache_buster.yaml
+    ├── convert_perf_results.py
+    ├── deb
+    │   ├── deb_test.sh
+    │   ├── Dockerfile
+    │   ├── envoy_bootstrap_v2.json
+    │   ├── istio-auth-node-agent.service
+    │   ├── istio-ca.sh
+    │   ├── istio-iptables.sh
+    │   ├── istio.mk
+    │   ├── istio-node-agent-start.sh
+    │   ├── istio.service
+    │   ├── istio-start.sh
+    │   ├── postinst.sh
+    │   └── sidecar.env
+    ├── dump_kubernetes.sh
+    ├── githubContrib
+    │   └── Contributions.txt
+    ├── hyperistio
+    │   ├── hyperistio.go
+    │   ├── hyperistio_test.go
+    │   ├── index.html
+    │   └── README.md
+    ├── istio-docker.mk
+    ├── license
+    │   ├── get_dep_licenses.go
+    │   └── README.md
+    ├── perf_istio_rules.yaml
+    ├── perf_k8svcs.yaml
+    ├── perf_setup.svg
+    ├── README.md
+    ├── rules.yml
+    ├── run_canonical_perf_tests.sh
+    ├── setup_perf_cluster.sh
+    ├── setup_run
+    ├── update_all
+    └── vagrant
+        ├── provision-vagrant.sh
+        └── Vagrantfile
+
+84 directories, 352 files
