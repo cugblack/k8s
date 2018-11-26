@@ -1,4 +1,4 @@
-#采用deployment部署
+#采用deployment部署,注意，此版本适用于v1.11之前的版本
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
