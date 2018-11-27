@@ -1,6 +1,7 @@
 # prometheus operator部署
 
-
+ kubectl apply -f [bundle.yaml](prometheus-operator/bundle.yaml)
+ 
  kubectl apply -f [prometheus-operator/](prometheus-operator)
 
 
