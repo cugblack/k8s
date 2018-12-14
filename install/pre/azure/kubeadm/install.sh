@@ -1,8 +1,4 @@
----
-
-# 安装docker:master node都需要
----
-
+#安装docker
 
 apt-get remove docker-ce docker-engine docker.io
 
@@ -25,7 +21,7 @@ systemctl enable docker
 systemctl start docker
 
 
-# 安装kubeadm kubelet kubectl: master node都需要
+#安装kubeadm kubelet kubectl: master node都需要
 
 
       apt-get update && apt-get install -y apt-transport-https curl
@@ -38,7 +34,7 @@ systemctl start docker
       apt-mark hold kubelet kubeadm kubectl
 
 
-# 初始化master节点
+#初始化master节点
 
 kubeadm init --pod-network-cidr=10.244.0.0/16
 
@@ -54,7 +50,7 @@ export KUBECONFIG=/etc/kubernetes/admin.conf
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
 
 
-# 添加node节点：
+#添加node节点：
 
 在node节点执行master节点初始化生成的join命令：
 
