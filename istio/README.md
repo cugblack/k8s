@@ -21,6 +21,8 @@
   
 加入到环境变量：
 
+    cd istio
+
     export PATH=$PWD/bin:$PATH
 
 安装 Istio 的核心部分。从以下四种_非手动_部署方式中选择一种方式安装。然而，官方推荐在生产环境时使用 Helm Chart 来安装 Istio，这样可以按需定制配置选项。
