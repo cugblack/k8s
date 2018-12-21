@@ -57,3 +57,9 @@ kubectl apply -f [samples/bookinfo/networking/bookinfo-gateway.yaml](istio-1.0.4
 `curl -o /dev/null -s -w "%{http_code}%\n" http://$GATEWAY_URL/productpage`
 
 > 也可以直接网页访问： http://GATEWAY_URL/productpage
+
+
+> Tips
+>> 环境清除：bash samples/bookinfo/platform/kube/cleanup.sh
+
+[官方文档](https://istio.io/zh/docs/examples/bookinfo)
