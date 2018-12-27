@@ -1,0 +1,52 @@
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: nginx
+  namespace: default
+spec:
+  revisionHistoryLimit: 10
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate   #逐个更新
+    rollingUpdate:
+      maxSurge: 3         #更新过程中Pod数量可以超过原期望数量的最大值，可以为百分比
+      maxUnavailable: 2   #更新过程中不可用状态Pod数量， 可以为百分比
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: nginx
+  template: 
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: nginx
+        image: cugblackcugblack/nginx:1.14-alpine
+        imagePullPolicy: "Always"
+        ports:
+          - containerPort: 80
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/conf.d
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+            #scheme: HTTPS
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+          periodSeconds: 300 
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+            #scheme: HTTPS
+          initialDelaySeconds: 30
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: nginx-conf
+
