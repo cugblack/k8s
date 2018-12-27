@@ -1,0 +1,17 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    apps: nginx
+  name: nginx
+  namespace: default
+spec:
+  type: NodePort
+  clusterIP: 10.100.100.101
+  ports:
+    - port: 80
+      targetPort: 80
+#      nodePort: 20080
+  selector:
+    app: nginx
