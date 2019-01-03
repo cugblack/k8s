@@ -1,0 +1,15 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/vabeta1
+metadata:
+  namespace: default
+  name: pod-reader
+rules:
+  - apiGroups: [""] #空字符串表示核心API群
+    resources: ["pods"] 
+    verbs: ["get", "watch", "list"]
+
+#rules参数说明：
+#  apiGroups: 支持的API组列表，例如"apiVersion: batch/v1"等
+#  resources：支持的资源对象列表，例如"pod、deployment、job"等
+#  verbs：对资源对象的操作方法列表，例如"get、watch、list、delete、replace、patch"等
+
