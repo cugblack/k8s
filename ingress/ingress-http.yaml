@@ -1,0 +1,19 @@
+#ingress config the path and backend service
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dashboard-ingress
+  namespace: kube-system
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    kubernetes.io/ingress.allow-http: "true"
+    ingress.kubernetes.io/add-base-url: "true"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /nginx/
+        backend:
+          serviceName: nginx 
+          servicePort: 80
