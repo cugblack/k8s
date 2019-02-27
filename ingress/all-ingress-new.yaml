@@ -285,7 +285,7 @@ spec:
             runAsNonRoot: false
   
 ---
-#ingress controller service used nodeport ,31088/31443 http/https
+#ingress controller service used nodeport ,31080/31443 http/https
 apiVersion: v1
 kind: Service
 metadata:
@@ -307,25 +307,3 @@ spec:
   selector:
     app: ingress-nginx
 
----
-#ingress config the path and backend service
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: dashboard-ingress
-  namespace: kube-system
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/secure-backends: "true"
-    nginx.org/ssl-backends: "kubernetes-dashboard"
-    kubernetes.io/ingress.allow-http: "false"
-    ingress.kubernetes.io/add-base-url: "true"
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /dashboard/
-        backend:
-          serviceName: kubernetes-dashboard 
-          servicePort: 443
