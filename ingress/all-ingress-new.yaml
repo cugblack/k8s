@@ -23,7 +23,7 @@ spec:
         # Any image is permissible as long as:
         # 1. It serves a 404 page at /
         # 2. It serves 200 on a /healthz endpoint
-        image: 192.168.20.4:5000/defaultbackend:1.4
+        image: cugblackcugblack/googlecontainer-defaultbackend-amd64:1.4
         livenessProbe:
           httpGet:
             path: /healthz
@@ -240,7 +240,7 @@ spec:
       serviceAccountName: nginx-ingress-serviceaccount
       containers:
         - name: nginx-ingress-controller
-          image: 192.168.20.4:5000/nginx-ingress-controller:0.14.0
+          image: cugblackcugblack/nginx-ingress-controller:0.22.0
           args:
             - /nginx-ingress-controller
             - --default-backend-service=$(POD_NAMESPACE)/default-http-backend
@@ -283,3 +283,49 @@ spec:
             timeoutSeconds: 1
           securityContext:
             runAsNonRoot: false
+  
+---
+#ingress controller service used nodeport ,31088/31443 http/https
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-nginx
+  namespace: kube-system
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+    nodePort: 31080
+    protocol: TCP
+  - name: https
+    port: 443
+    targetPort: 443
+    nodePort: 31443
+    protocol: TCP
+  selector:
+    app: ingress-nginx
+
+---
+#ingress config the path and backend service
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dashboard-ingress
+  namespace: kube-system
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/secure-backends: "true"
+    nginx.org/ssl-backends: "kubernetes-dashboard"
+    kubernetes.io/ingress.allow-http: "false"
+    ingress.kubernetes.io/add-base-url: "true"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /dashboard/
+        backend:
+          serviceName: kubernetes-dashboard 
+          servicePort: 443
