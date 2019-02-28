@@ -1,0 +1,71 @@
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: zendao
+  namespace: develop
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: zendao
+  template: 
+    metadata:
+      labels:
+        app: zendao
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: zendao
+        image: cugblackcugblack/zendao:0.2
+        imagePullPolicy: "Always"
+        ports:
+          - containerPort: 80
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "123456"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+            #scheme: HTTPS
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+          periodSeconds: 300 
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+            #scheme: HTTPS
+          initialDelaySeconds: 30
+        volumeMounts:
+          - name: zendao-data
+            mountPath: /app/zentaopms/
+          - name: mysql-data
+            mountPath: /var/lib/mysql/
+      volumes:
+      # 宿主机上的目录
+      - name: zendao-data
+        nfs:
+          path: /nfs-share/k8s/zendao/www
+          server: 10.0.0.154
+      - name: mysql-data
+        nfs:
+          path: /nfs-share/k8s/zendao/data
+          server: 10.0.0.154
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    apps: zendao
+  name: zendao
+  namespace: develop
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+#      nodePort: 20080
+  selector:
+    app: zendao
