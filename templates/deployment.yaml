@@ -42,5 +42,12 @@ spec:
             port: 80
             #scheme: HTTPS
           initialDelaySeconds: 30
-
-
+        volumeMounts:
+          - name: log
+            path: /var/log/nginx
+      volumes:
+      - name: nginx-log
+        nfs:
+          - name: log
+            path: /nfs-server/nginx/log
+             
