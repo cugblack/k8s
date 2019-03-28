@@ -1,0 +1,30 @@
+---
+#计算资源指标
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-resources
+  namespace: develop
+spec:
+  hard:
+    pods: "40"
+    requests.cpu: "2"
+    requests.memory: 100Gi
+    limits.cpu: "4"
+    limits.memory: 200Gi
+
+---
+#对象资源数量
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: object-counts
+  namespace: develop
+spec:
+  hard:
+    configmaps: "20"
+    persistentvolumeclaims: "8"
+    replicationcontrollers: "20"
+    secrets: "10"
+    services: "20"
+    services.loadbalancers: "5"
