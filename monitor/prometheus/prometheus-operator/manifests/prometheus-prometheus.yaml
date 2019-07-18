@@ -11,6 +11,13 @@ spec:
     - name: alertmanager-main
       namespace: monitoring
       port: web
+  storage:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: you-storageClassName
+        resources:
+          requests:
+            storage: 50G
   baseImage: quay.io/prometheus/prometheus
   nodeSelector:
     beta.kubernetes.io/os: linux
