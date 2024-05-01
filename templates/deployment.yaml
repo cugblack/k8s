@@ -44,7 +44,7 @@ spec:
           initialDelaySeconds: 30
         volumeMounts:
           - name: log
-            path: /var/log/nginx
+            mountPath: /var/log/nginx
       volumes:
       - name: nginx-log
         nfs:
